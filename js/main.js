@@ -215,3 +215,4 @@ function init(){
 updateLevelDescription();
 updatePlayerDescription();
 init();
+updateResult();
