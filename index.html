@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://i.imgur.com/tohZT6r.jpg">
+
+    <title>LLAS 活動計算機</title>
+
+
+    <!-- Bootstrap css and js -->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+
+    <!-- Some general css file -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/timercounter.js"></script>
+
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="">LoveLive All Stars 活動計算機</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item ">
+                        <a class="nav-link active" href="">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="">About</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                <a class="nav-link" href="#">Services</a>
+              </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link"
+                            href="mailto:ekids12345@gmail.com?Subject=Hello MV ! I want to buy : ">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+        
+            <div id="left-container" class=" col-md-8 my-5r ">
+                <p>注 : 初級 B A 暫無樣本</p>
+                <div id="level" class="btn-group btn-group-toggle btn-layout" data-toggle="buttons">
+                    <label class="btn btn-outline-primary form-inline">
+                        <input type="radio" name="level-options" id="easyS" autocomplete="off" >初級 分數S
+                    </label>
+                    <label class="btn btn-outline-primary">
+                        <input type="radio" name="level-options" id="easyA" autocomplete="off">初級 分數A
+                    </label>
+                    <label class="btn btn-outline-primary">
+                        <input type="radio" name="level-options" id="easyB" autocomplete="off">初級 分數B
+                    </label>
+                    <label class="btn btn-outline-primary active">
+                        <input type="radio" name="level-options" id="normalS" autocomplete="off" checked>中級 分數S
+                    </label>
+                    <label class="btn btn-outline-primary">
+                        <input type="radio" name="level-options" id="normalA" autocomplete="off">中級 分數A
+                    </label>
+                    <label class="btn btn-outline-primary">
+                        <input type="radio" name="level-options" id="normalB" autocomplete="off">中級 分數B
+                    </label>
+                    <label class="btn btn-outline-primary">
+                        <input type="radio" name="level-options" id="hardS" autocomplete="off">上級 分數S
+                    </label>
+                    <label class="btn btn-outline-primary">
+                        <input type="radio" name="level-options" id="hardA" autocomplete="off">上級 分數A
+                    </label>
+                    <label class="btn btn-outline-primary">
+                        <input type="radio" name="level-options" id="hardB" autocomplete="off">上級 分數B
+                    </label>
+                </div>
+
+                <div id="bonus" class="btn-group btn-group-toggle btn-layout" data-toggle="buttons">
+                    <span>PT 加成 ?</span>
+                    <label class="btn btn-outline-warning active">
+                        <input type="checkbox" name="bonus-options" id="0" autocomplete="off">無加成
+                    </label>
+                    <label class="btn btn-outline-warning">
+                        <input type="checkbox" name="bonus-options" id="1" autocomplete="off">我有 SR 千歌 2%
+                    </label>
+                    <label class="btn btn-outline-warning">
+                        <input type="checkbox" name="bonus-options" id="2" autocomplete="off">我有 SR 曜 5%
+                    </label>
+                    <label class="btn btn-outline-warning">
+                        <input type="checkbox" name="bonus-options" id="3" autocomplete="off">我有 UR 鳥 15%
+                    </label>
+                </div>
+                <p id="level-description" class="col-lg-12">
+                    note :
+                </p>
+                <div id="player" class="btn-group btn-group-toggle " data-toggle="buttons">
+                    <p>玩家屬性 : </p>
+                    
+                    <label class="btn btn-outline-success">
+                        <input type="radio" name="player-options" id="casual" autocomplete="off">休閒玩家
+                    </label>
+                    <label class="btn btn-outline-success active">
+                        <input type="radio" name="player-options" id="normal" autocomplete="off" checked>認真玩家
+                    </label>
+                    <label class="btn btn-outline-success">
+                        <input type="radio" name="player-options" id="hardcore" autocomplete="off">❤愛肝❤
+                    </label>
+                </div>
+                <!-- <div id="player "class=" col-lg-12">
+                    <p >玩家屬性 :</p>
+                    <button class="btn btn-success">休閒玩家</button>
+                    <button class="btn btn-success">認真玩家</button>
+                    <button class="btn btn-success">❤愛肝❤</button>
+                </div> -->
+                <p id="player-description" class="col-lg-12">
+                    123
+                </p>
+                
+                <!-- Display the countdown timer in an element -->
+                <div class="col-lg-12">
+                    <p>距離活動結束還剩下 :  </p>
+                    <p id="timer_now"></p>
+                    <p>到活動結束前還有<span id="available_lp"></span>體力可以使用</p>
+
+                </div>
+                <div class="col-lg-12">
+                    <button class="btn btn-outline-success" data-toggle="button" aria-pressed="false" >單純計算13天活動</button>
+                    <button class="btn btn-outline-success">用現在的剩餘時間做計算</button>
+                </div>
+                
+            </div>
+
+
+            <div class="col-lg-4 my-5r">
+                <h2>額外目標</h2>
+                <div class=" ">
+                    <label for="rewardSelect">目標獎勵</label>
+                    <select class="form-control" id="rewardSelect" style="width: 15rem;">
+                        <option value="0">無</option>
+                        <option value="11000">11000 SR 高海千歌</option>
+                        <option value="37500">37500 銀馬卡龍3* x100</option>
+                        <option value="55000">55000 SR 上原步夢</option>
+                        <option value="130000">130000 SR 高海千歌</option>
+                        <option value="135000">135000 銀馬卡龍3* x100</option>
+                        <option value="190000">190000 SR 上原步夢</option>
+                        <option value="500000">500000 合宿券 x10</option>
+                        <option value="550000">550000 銀馬卡龍3* x100</option>
+                        <option value="900000">900000 合宿券 x10</option>
+                    </select>
+                    <p>==> 所需 PT <input type="pt" class="form-control" id="pt-need" placeholder="" size="8"></p>
+
+                    <div id="player-info " class="">
+                        <div class="form-group">
+                            <label for="acc-pt">現有的 PT 點數</label>
+                            <input type="pt" class="form-control" id="acc-pt" aria-describedby="ptHelp" placeholder="輸入您現有的 PT 點數">
+                            <small id="ptHelp" class="form-text text-muted">可不填寫，預設為0</small>
+                        </div>
+                        <div class="form-group work-rest-form">
+                            <label for="work-rest">計算體力細節</label>
+                            <div class="myrow">
+                                <input type="pt" class="form-control" id="work" aria-describedby="work-restHelp" placeholder="幾點起床">
+                                <input type="pt" class="form-control" id="rest" aria-describedby="work-restHelp" placeholder="幾點休息">
+
+                            </div>
+                            <small id="work-restHelp" class="form-text text-muted">可不填寫，預設早8晚11</small>
+                        </div>
+                    </div>
+
+                    <div id="result"></div>
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+    <!-- /.container -->
+    
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Made By MeteorV <br>
+                <a href="mailto:ekids12345@gmail.com" style="font-size:24px; color:white" ><i class="far fa-envelope" ></i> mail to me to improve this page : )</a></p>
+        </div>
+        <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+
+    <script src="js/main.js"></script>
+    <!-- <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+
+
+</body>
+
+</html>
