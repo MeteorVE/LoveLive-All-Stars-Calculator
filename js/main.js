@@ -114,7 +114,7 @@ function updateLevelDescription(_inBtn){
     // 392 * 1.02 會讓JS小數溢位
     var level_name = ['easyB', 'easyA', 'easyS', 'normalB', 'normalA', 'normalS', 'hardB', 'hardA', 'hardS'];
     var level_lp = ['20', '20', '20', '25', '25', '25', '30', '30', '30'];
-    var bonus_list = [0, 2, 5, 15];
+    var bonus_list = [0, 2 , 2 , 5, 15];
     // var checked_btn = _inBtn;
     var checked_btn = document.querySelector("input[name='level-options']:checked");
     var bonus_checked_btn = document.querySelectorAll("#bonus>label.active>input");
