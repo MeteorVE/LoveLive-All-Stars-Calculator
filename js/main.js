@@ -25,7 +25,7 @@ function updateResult(){
     var str = "<h2>計算結果 : </h2><p>自然回體到結束 PT 可達到 " + normal_get_pt +
         "。<br>PT 還差 " + (reward_target - acc_pt) + " (" + times + "場)<br>需要 " +
         lp_per * times + " 體力，自然回體有 " + available_lp + " 體<br>" +
-        "故需額外 " + extra_lp + " 體力 (" + Math.ceil(extra_lp/100) + " 顆石頭)";
+        "故需額外 " + extra_lp + " 體力 (" + Math.ceil(extra_lp/10) + " 顆石頭)";
     str += "<p>額外體力若是負的，代表達標。<br>本服務僅提供試算，不同計算方式會有些差異。\
             <br>有其他建議歡迎下方聯繫討論 :)</p>"
     document.getElementById("result").innerHTML = str;
