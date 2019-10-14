@@ -105,6 +105,8 @@ function getNormalLp(_countDownDate){
 
         var last_day_minutes = (countDownDate.getHours() - wakeup_time) * 60 + countDownDate.getMinutes();
         var full_day = (countDownDate.getDate() - now.getDate() - 2)*( (rest_time-wakeup_time)*60 + 300 ) ; // +300 因為睡覺回體
+        if(full_day<0)
+            full_day = 0;
         var today_minutes = (rest_time - now.getHours()) * 60 - now.getMinutes();
         var true_lp = Math.floor((last_day_minutes + full_day + today_minutes) / 3) + 100 * (countDownDate.getDate() - now.getDate());
         var total_times = Math.floor((today_minutes / 3) / lp_value) + Math.floor((last_day_minutes / 3) / lp_value) + Math.floor((full_day/3)/lp_value);
@@ -134,6 +136,8 @@ function getCasualLp(_countDownDate){
 
         var last_day_minutes = (countDownDate.getHours() - wakeup_time) * 60 + countDownDate.getMinutes();
         var full_day_times = (countDownDate.getDate() - now.getDate() - 2);
+        if (full_day_times < 0)
+            full_day_times = 0;
         var today_minutes = ((rest_time - now.getHours()) * 60 - now.getMinutes()) < 300 ? (rest_time - now.getHours()) * 60 - now.getMinutes() : 300;
         // console.log("last_day_minutes", last_day_minutes, " full:", full_day, ",  td min:", today_minutes);
         var total_times = Math.floor((today_minutes / 3) / lp_value) + Math.floor(100 / lp_value) * 2 * full_day_times + Math.floor((last_day_minutes / 3) / lp_value)
