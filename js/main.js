@@ -10,7 +10,7 @@ function computeExp(_times){
         current_exp = 0;
     }
 
-    var exp_per_song = [16,27,42];
+    var exp_per_song = [8,13,21];
     var total_exp = current_exp;
     var UP_EXP = [0, 100, 115, 130, 145, 190, 240, 285, 335, 385, 435, 485, 535, 590, 640, 690, 745, 800, 850, 905, 960, 1015, 1065, 1120, 1175, 1230, 1285, 1345, 1400, 1455, 1510, 1570, 1625, 1680, 1740, 1795, 1850, 1910, 1970, 2025, 2085, 2140, 2200, 2260, 2315, 2375, 2435, 2495, 2550, 2610, 2670, 2730, 2790, 2850, 2910, 2970, 3030, 3090, 3150, 3210, 3270, 3330, 3390, 3450, 3510, 3575, 3635, 3695, 3755, 3815, 3880, 3940, 4e3, 4065, 4125, 4185, 4250, 4310, 4370, 4435, 4495, 4560, 4620, 4685, 4745, 4810, 4870, 4935, 4995, 5060, 5125, 5185, 5250, 5310, 5375, 5440, 5500, 5565, 5630, 5690, 5755, 5820, 5885, 5945, 6010, 6075, 6140, 6205, 6265, 6330, 6395, 6460, 6525, 6590, 6655, 6715, 6780, 6845, 6910, 6975, 7040, 7105, 7170, 7235, 7300, 7365, 7430, 7495, 7560, 7625, 7690, 7755, 7820, 7885, 7955, 8020, 8085, 8150, 8215, 8280, 8345, 8415, 8480, 8545, 8610, 8675, 8745, 8810, 8875, 8940, 9005, 9075, 9140, 9205, 9275, 9340, 9405, 9470, 9540, 9605, 9670, 9740, 9805, 9875, 9940, 10005, 10075, 10140, 10205, 10275, 10340, 10410, 10475, 10545, 10610, 10675, 10745, 10810, 10880, 10945, 11015, 11080, 11150, 11215, 11285, 11350, 11420, 11490, 11555, 11625, 11690, 11760, 11825, 11895, 11965, 12030, 12100, 12165, 12235, 12305];
     var diff_btn = document.querySelector("input[name='level-options']:checked");
@@ -81,7 +81,7 @@ function getHardcoreLp(_countDownDate){
     var now = new Date();
     var total_minutes = (countDownDate.getTime() - now.getTime()) / 1000 / 60;
     console.log( (countDownDate.getTime() - now.getTime())/1000/60/60,"小時" );
-    return Math.floor(total_minutes/3)
+    return Math.floor(total_minutes/4)
 }
 
 function getNormalLp(_countDownDate){
@@ -90,9 +90,9 @@ function getNormalLp(_countDownDate){
     // now = new Date("Oct 13, 2019 00:00:00");
     
     if (now.getDate() == countDownDate.getDate()){
-        // 5hr = 100LP, 60min = 20LP, 3min = 1LP
+        // 5hr = 75LP, 60min = 15LP, 4min = 1LP
         var minutes = (countDownDate.getHours() - now.getHours()) * 60 + countDownDate.getMinutes() - now.getMinutes();
-        return Math.floor(minutes/3) // 除三因為 3min  = 1LP
+        return Math.floor(minutes/4) // 除三因為 3min  = 4LP
     }else{
         // 幾點起床
         var wakeup_time = document.getElementById("work").value;
@@ -104,14 +104,14 @@ function getNormalLp(_countDownDate){
             rest_time = 23
 
         var last_day_minutes = (countDownDate.getHours() - wakeup_time) * 60 + countDownDate.getMinutes();
-        var full_day = (countDownDate.getDate() - now.getDate() - 2)*( (rest_time-wakeup_time)*60 + 300 ) ; // +300 因為睡覺回體
+        var full_day = (countDownDate.getDate() - now.getDate() - 2)*( (rest_time-wakeup_time)*60 + 400 ) ; // +400 因為睡覺回體
         if(full_day<0)
             full_day = 0;
         var today_minutes = (rest_time - now.getHours()) * 60 - now.getMinutes();
         var true_lp = Math.floor((last_day_minutes + full_day + today_minutes) / 3) + 100 * (countDownDate.getDate() - now.getDate());
-        var total_times = Math.floor((today_minutes / 3) / lp_value) + Math.floor((last_day_minutes / 3) / lp_value) + Math.floor((full_day/3)/lp_value);
+        var total_times = Math.floor((today_minutes / 4) / lp_value) + Math.floor((last_day_minutes / 4) / lp_value) + Math.floor((full_day/4)/lp_value);
         console.log("last_day_minutes : ",last_day_minutes, " full_day_mins : ", full_day, ",  today remain mins :" ,today_minutes);
-        //console.log(countDownDate.getDate() - now.getDate() - 2, (rest_time - wakeup_time) * 60 + 300);
+        //console.log(countDownDate.getDate() - now.getDate() - 2, (rest_time - wakeup_time) * 60 + 400);
         return total_times * lp_value
     }
 }
@@ -122,9 +122,9 @@ function getCasualLp(_countDownDate){
     // now = new Date("Oct 13, 2019 00:00:00");
     
     if (now.getDate() == countDownDate.getDate()) {
-        // 5hr = 100LP, 60min = 20LP, 3min = 1LP
+        // 6hr = 75LP, 60min = 15LP, 4min = 1LP
         var minutes = (countDownDate.getHours() - now.getHours()) * 60 + countDownDate.getMinutes() - now.getMinutes();
-        return Math.floor(minutes / 3) // 除三因為 3min  = 1LP
+        return Math.floor(minutes / 4) // 除三因為 3min  = 1LP
     } else {
         var wakeup_time = document.getElementById("work").value;
         var rest_time = document.getElementById("rest").value;
@@ -138,10 +138,10 @@ function getCasualLp(_countDownDate){
         var full_day_times = (countDownDate.getDate() - now.getDate() - 2);
         if (full_day_times < 0)
             full_day_times = 0;
-        var today_minutes = ((rest_time - now.getHours()) * 60 - now.getMinutes()) < 300 ? (rest_time - now.getHours()) * 60 - now.getMinutes() : 300;
+        var today_minutes = ((rest_time - now.getHours()) * 60 - now.getMinutes()) < 400 ? (rest_time - now.getHours()) * 60 - now.getMinutes() : 400;
         // console.log("last_day_minutes", last_day_minutes, " full:", full_day, ",  td min:", today_minutes);
-        var total_times = Math.floor((today_minutes / 3) / lp_value) + Math.floor(100 / lp_value) * 2 * full_day_times + Math.floor((last_day_minutes / 3) / lp_value)
-        console.log(Math.floor((last_day_minutes / 3) / lp_value));
+        var total_times = Math.floor((today_minutes / 4) / lp_value) + Math.floor(100 / lp_value) * 2 * full_day_times + Math.floor((last_day_minutes / 4) / lp_value)
+        console.log(Math.floor((last_day_minutes / 4) / lp_value));
         
         return total_times * lp_value
     }
@@ -162,7 +162,7 @@ function updateLevelDescription(_inBtn){
     var level_score = [300, 315, 330, 375, 392 , 450, 450, 517 ,585];
     // 392 * 1.02 會讓JS小數溢位
     var level_name = ['easyB', 'easyA', 'easyS', 'normalB', 'normalA', 'normalS', 'hardB', 'hardA', 'hardS'];
-    var level_lp = ['20', '20', '20', '25', '25', '25', '30', '30', '30'];
+    var level_lp = ['5', '5', '5', '10', '10', '10', '15', '15', '15'];
     var bonus_list = [0, 2 , 2 , 5, 15];
     // var checked_btn = _inBtn;
     var checked_btn = document.querySelector("input[name='level-options']:checked");
@@ -200,7 +200,7 @@ function init(){
     var rewardSelect = document.getElementById("rewardSelect");
     var acc_pt = document.getElementById("acc-pt");
 
-    var countDownDate = new Date("Oct 15, 2019 13:59:00");    
+    var countDownDate = new Date("Oct 31, 2019 13:59:00");    
     updateAvailableLp(countDownDate);
 
     for(var la of level_labels){
