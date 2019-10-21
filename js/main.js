@@ -53,22 +53,31 @@ function updateResult(){
     var available_lp =  Number(document.getElementById("available_lp").textContent);
     var lp_per = Number(document.getElementById("lp_value").textContent);
     var extra_lp = lp_per * times - available_lp;
-    var normal_get_pt = (available_lp / lp_per) * score_value + acc_pt;
+    var normal_get_pt = Math.floor(available_lp / lp_per) * score_value + acc_pt;
     
 
-    let need_star = Math.ceil(extra_lp / 10);
+    let need_star = Math.ceil(extra_lp / 100)*10;
     // <h2>計算結果 : </h2><p>PT 還差 XXX，需要 K 場<br>自然回體可打 L 場<br>需要額外 N 管體 = 幾顆星星</p>
     var str = "<h2>計算結果 : </h2><p>自然回體到結束 PT 可達到 " + normal_get_pt +
         "。<br>PT 還差 " + (reward_target - acc_pt) + " (" + times + "場)<br>需要 " +
-        lp_per * times + " 體力，自然回體有 " + available_lp + " 體<br>" +
-        "故需額外 " + extra_lp + " 體力 (" + need_star + " 顆石頭)";
+        lp_per * times + " 體力，自然回體有 " + available_lp + " 體<br>";
+        
+    if (extra_lp>0)
+        str+= "故需額外 " + extra_lp + " 體力 (" + need_star + " 顆石頭)";
+    else 
+        str += "多出額外 " + extra_lp*(-1) + " 體力";
+
 
     var expDir = {}
     if (document.getElementById("current_lv").value != ""){
         expDir = computeExp(times);
         console.log(expDir);
         
-        str += "<br>預估會到 LV" + expDir['now_level'] + ", 升級次數 " + expDir['level_up_times'] + " 次(仍需" + (need_star-expDir['level_up_times']*10) +"顆)";
+        str += "<br>預估會到 LV" + expDir['now_level'] + ", 升級次數 " + expDir['level_up_times'] + " 次";
+        if ( (need_star - expDir['level_up_times'] * 10)<0  )  
+            str+="(無須花石頭)";
+        else 
+            str+= "(仍需" + (need_star - expDir['level_up_times'] * 10) +"顆)";
     }
 
     str += "<p>額外體力若是負的，代表達標。<br>本服務僅提供試算，不同計算方式會有些差異。\
@@ -159,7 +168,7 @@ function updateAvailableLp(countDownDate) {
 
 function updateLevelDescription(_inBtn){
     // 上 C 427  B 450 
-    var level_score = [300, 315, 330, 375, 392 , 450, 450, 517 ,585];
+    var level_score = [250, 262, 275, 375, 390, 405, 562, 581, 600];
     // 392 * 1.02 會讓JS小數溢位
     var level_name = ['easyB', 'easyA', 'easyS', 'normalB', 'normalA', 'normalS', 'hardB', 'hardA', 'hardS'];
     var level_lp = ['10', '10', '10', '12', '12', '12', '15', '15', '15'];
@@ -179,8 +188,8 @@ function updateLevelDescription(_inBtn){
 function updatePlayerDescription(){
     var checked_btn = document.querySelector("input[name='player-options']:checked");
     var player_dir = [{ 'type': 'casual', 'description': "一天只登起床睡前兩次，共耗體 200體/天<br>此選項計算可能會有誤差。"},
-        { 'type': 'normal', 'description': "早8 ~ 晚11的 15小時 都不爆體，共耗體 400體/天" },
-        { 'type': 'hardcore', 'description': "每5個小時就清一次體力，活動間不爆體，共耗體 480體/天" }
+        { 'type': 'normal', 'description': "早8 ~ 晚11的 15小時(900分鐘) 都不爆體，共耗體 325體/天 (900/4+100)" },
+        { 'type': 'hardcore', 'description': "每400分鐘就清一次體力，活動間不爆體，共耗體 360體/天" }
         ];
     var str = ""
     for(var dic of player_dir){
