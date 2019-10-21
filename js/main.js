@@ -162,7 +162,7 @@ function updateLevelDescription(_inBtn){
     var level_score = [300, 315, 330, 375, 392 , 450, 450, 517 ,585];
     // 392 * 1.02 會讓JS小數溢位
     var level_name = ['easyB', 'easyA', 'easyS', 'normalB', 'normalA', 'normalS', 'hardB', 'hardA', 'hardS'];
-    var level_lp = ['5', '5', '5', '10', '10', '10', '15', '15', '15'];
+    var level_lp = ['10', '10', '10', '12', '12', '12', '15', '15', '15'];
     var bonus_list = [0, 2 , 2 , 5, 15];
     // var checked_btn = _inBtn;
     var checked_btn = document.querySelector("input[name='level-options']:checked");
