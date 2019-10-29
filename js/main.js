@@ -113,7 +113,7 @@ function getNormalLp(_countDownDate){
             rest_time = 23
 
         var last_day_minutes = (countDownDate.getHours() - wakeup_time) * 60 + countDownDate.getMinutes();
-        var full_day = (countDownDate.getDate() - now.getDate() - 2)*( (rest_time-wakeup_time)*60 + 400 ) ; // +400 因為睡覺回體
+        var full_day = (countDownDate.getDate() - now.getDate() - 1)*( (rest_time-wakeup_time)*60 + 400 ) ; // +400 因為睡覺回體
         if(full_day<0)
             full_day = 0;
         var today_minutes = (rest_time - now.getHours()) * 60 - now.getMinutes();
@@ -144,7 +144,7 @@ function getCasualLp(_countDownDate){
         var lp_value = document.getElementById("lp_value").textContent;
 
         var last_day_minutes = (countDownDate.getHours() - wakeup_time) * 60 + countDownDate.getMinutes();
-        var full_day_times = (countDownDate.getDate() - now.getDate() - 2);
+        var full_day_times = (countDownDate.getDate() - now.getDate() - 1);
         if (full_day_times < 0)
             full_day_times = 0;
         var today_minutes = ((rest_time - now.getHours()) * 60 - now.getMinutes()) < 400 ? (rest_time - now.getHours()) * 60 - now.getMinutes() : 400;
