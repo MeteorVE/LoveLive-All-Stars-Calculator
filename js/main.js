@@ -209,7 +209,7 @@ function init(){
     var rewardSelect = document.getElementById("rewardSelect");
     var acc_pt = document.getElementById("acc-pt");
 
-    var countDownDate = new Date("Nov 30, 2019 13:59:00");    
+    var countDownDate = new Date("Dec 16, 2019 13:59:00");    
     updateAvailableLp(countDownDate);
 
     for(var la of level_labels){
