@@ -201,15 +201,28 @@ function updatePlayerDescription(){
     document.getElementById("player-description").innerHTML = str;
 }
 
+function updateTimer(){
+    var event_end_month = Number(document.getElementById("event_end_month").value) -1;
+    var event_end_day = Number(document.getElementById("event_end_day").value) ;
+    console.log("get from text: month:", event_end_month, " day:", event_end_day);
+    countDownDate.setMonth(event_end_month, event_end_day);
+    console.log(countDownDate)
+
+    global_timer = start_timer_update(countDownDate);
+    init();
+    // updateAvailableLp()
+}
+
 
 function init(){
+    console.log("enter init")
     var level_labels = document.querySelectorAll("#level>label");
     var bonus_labels = document.querySelectorAll("#bonus>label");
     var player_labels = document.querySelectorAll("#player>label");
     var rewardSelect = document.getElementById("rewardSelect");
     var acc_pt = document.getElementById("acc-pt");
 
-    var countDownDate = new Date("Jan 31, 2020 13:59:00");    
+       
     updateAvailableLp(countDownDate);
 
     for(var la of level_labels){
@@ -275,8 +288,14 @@ function init(){
     document.getElementById("current_exp").addEventListener('input', function () {
         updateResult();
     })
+
+    document.getElementById("event_end_day").addEventListener('input', function () {
+        updateTimer();
+    })
 }
 
+var countDownDate = new Date("Jan 31, 2020 13:59:00"); 
+var global_timer;
 updateLevelDescription();
 updatePlayerDescription();
 init();

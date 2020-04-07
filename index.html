@@ -88,10 +88,20 @@
     
     <!-- Page Content -->
     <div class="container">
-        <div class="row">
         
+        <div class="row">
+           
             <div id="left-container" class=" col-md-8 my-5r ">
-                <p></p>
+                <br>
+                <p>由於作者目前是養身狀態，活動日期可能無法即時更新，現在新增自定義日期的功能，方便計算體力。
+                    <br>固定下午兩點結束活動，所以自定義的欄位只有 月/日
+                    <br>
+                    <div class="myrow form-inline">
+                        <p>活動什麼時候結束呢 ?  </p>
+                        <input type="pt" class="form-control" id="event_end_month" aria-describedby="set_event_time" placeholder="幾月">
+                        <input type="pt" class="form-control" id="event_end_day" aria-describedby="set_event_time" placeholder="幾號">
+                    </div>
+                </p>
                 <div id="level" class="btn-group btn-group-toggle btn-layout" data-toggle="buttons">
                     <label class="btn btn-outline-primary form-inline">
                         <input type="radio" name="level-options" id="easyS" autocomplete="off" >初級 分數S
